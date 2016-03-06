@@ -54,23 +54,7 @@ public class SimpleArrayList<E> implements List<E> {
      */
     @SuppressWarnings("unchecked")
     public void add(int index, E element) {
-        if (index > size()) {
-            throw new IndexOutOfBoundsException("Can't add element to index " + index
-                    + " in list of size " + size());
-        }
-
-        E[] temp = (E[]) new Object[size() + 1];
-
-        for (int i = 0; i < index; i++) {
-            temp[i] = elements[i];
-        }
-
-        temp[index] = element;
-
-        for (int i = index; i < size(); i++) {
-            temp[i + 1] = elements[i];
-        }
-        elements  = temp;
+        //TODO implement me
     }
 
     /**
@@ -85,24 +69,8 @@ public class SimpleArrayList<E> implements List<E> {
      */
     @SuppressWarnings("unchecked")
     public E remove(int index) {
-        if (index > size() -1) {
-            throw new IndexOutOfBoundsException("Can't add element to index "
-                    + index + " in list of size " + size());
-        }
-
-        E target = elements[index];
-        E[] temp = (E[]) new Object[size() - 1];
-
-        for (int i = 0; i < size(); i++) {
-            if (i < index) {
-                temp[i] = elements[i];
-            } else if (i > index) {
-                temp[i-1] = elements[i];
-            }
-        }
-
-        elements = temp;
-        return target;
+        //TODO implement me
+        return null;
     }
 
     /**
@@ -114,16 +82,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return true if the list contained the element.
      */
     public boolean remove(Object target) {
-        boolean hasTarget = false;
-        for (int i = 0; i < size(); i++) {
-            hasTarget = ((E)target).equals(elements[i]);
-            if (hasTarget) {
-                remove(i);
-                break;
-            }
-        }
-
-        return hasTarget;
+        //TODO implement me
+        return false;
     }
 
     /**
@@ -131,7 +91,7 @@ public class SimpleArrayList<E> implements List<E> {
      */
     @SuppressWarnings("unchecked")
     public void clear() {
-        elements = (E[]) new Object[DEFAULT_SIZE];
+        //TODO implement me
     }
 
     /**
@@ -140,16 +100,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return true if the element exists.
      */
     public boolean contains(Object target) {
-        boolean contains = false;
-
-        for (E e : elements) {
-            if  (((E)target).equals(e)) {
-                contains = true;
-                break;
-            }
-        }
-
-        return contains;
+        //TODO implement me
+        return false;
     }
 
     /**
@@ -159,16 +111,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return the lowest index of the matched element, or -1 if not found.
      */
     public int indexOf(Object target) {
-        int index = -1;
-
-        for (int i = 0; i < size(); i++) {
-            if (((E)target).equals(elements[i])) {
-                index = i;
-                break;
-            }
-        }
-
-        return index;
+        //TODO implement me
+        return 0;
     }
 
     /**
@@ -177,7 +121,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return the element.
      */
     public E get(int index) {
-        return elements[index];
+        //TODO implement me
+        return null;
     }
 
     /**
@@ -190,14 +135,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @throws IndexOutOfBoundsException if the index is out of range.
      */
     public E set(int index, E element) {
-        if (index > size() -1) {
-            throw new IndexOutOfBoundsException("Can't add element to index "
-                    + index + " in list of size " + size());
-        }
-        E temp = elements[index];
-        elements[index] = element;
-
-        return temp;
+        //TODO implement me
+        return null;
     }
     /**
      * Returns the number of elements in this list.
@@ -205,7 +144,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return the number of elements currently stored in the array list.
      */
     public int size() {
-        return elements.length;
+        //TODO implement me
+        return 0;
     }
 
     /**
@@ -214,7 +154,8 @@ public class SimpleArrayList<E> implements List<E> {
      * @return true if the list contains no elements.
      */
     public boolean isEmpty() {
-        return size() == 0;
+        //TODO implement me
+        return false;
     }
 
     /**
@@ -237,7 +178,6 @@ public class SimpleArrayList<E> implements List<E> {
     public <T> T[] toArray(T[] a) {
         throw new UnsupportedOperationException();
     }
-
 
     @Override
     public Iterator<E> iterator() {
