@@ -54,10 +54,17 @@ public class Driver {
         String strFile = "SimpleArrayList_10K.csv";
         try {
             printStream = new PrintWriter(strFile);
-            printStream.println("SampleSize, AddToBack, AddToFront, Contains, RandomAccess, AccessMid");
+            printStream.println("SampleSize, AddToBack, AddToFront, Contains, " +
+                    "RandomAccess, AccessMid");
+
             Benchmarker benchmarker = new Benchmarker();
 
             List<Integer> list = new SimpleArrayList<>();
+
+            //TODO swap out these two lines to make comparisons.
+            //Don't forget to change the filename!
+
+            //List<Integer> list = new ArrayList<>();
 
             // We want to take measurements for different numbers of items
             // (N) in the collection, so that we can see how the performance
