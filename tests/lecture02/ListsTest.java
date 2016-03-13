@@ -5,6 +5,7 @@
  */
 package lecture02;
 
+import lecture03.SimpleLinkedList;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -20,13 +21,13 @@ import org.junit.Test;
  * @author Brad Dennis, Ph.D.
  * @version 1.0
  */
-public class SimpleArrayListTest {
+public class ListsTest {
 
-    private SimpleArrayList<String> list;
+    private SimpleLinkedList<String> list;
 
     @Before
     public void setUp() {
-        list = new SimpleArrayList<>();
+        list = new SimpleLinkedList<>();
     }
 
     @After
