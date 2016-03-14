@@ -5,6 +5,7 @@
  */
 package lecture02;
 
+import java.util.LinkedList;
 import lecture03.SimpleLinkedList;
 import org.junit.After;
 import static org.junit.Assert.*;

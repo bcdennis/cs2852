@@ -21,8 +21,8 @@ import java.util.ListIterator;
 public class SimpleLinkedList<E> implements List<E> {
     private int size = 0;
 
-    private Node head = null;
-    private Node tail = null;
+    private Node<E> head = null;
+
 
     /**
      * Adds the element to the end of the array.
@@ -32,9 +32,13 @@ public class SimpleLinkedList<E> implements List<E> {
      */
     @SuppressWarnings("unchecked")
     public boolean add(E element) {
-        Node node = new Node(element, null);
-        tail.next = node;
-        tail = node;
+        Node<E> item = new Node<E>(element);
+        Node<E> current = head;
+
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = item;
         size++;
 
         return true;
@@ -165,24 +169,34 @@ public class SimpleLinkedList<E> implements List<E> {
         Node current = head;
 
         while (current.next != null) {
-            temp[0] = current.value;
+            temp[0] = (E)current.value;
             current = current.next;
         }
 
         return temp;
     }
 
-    private class Node {
-        public E value;
-        public Node next;
+    private static class Node<E> {
+        private E value;
+        private Node<E> next;
+
 
         /**
-         * Creates a new Node.
+         * Creates a node with no next reference.
+         *
+         * @param value the reference data.
+         */
+        private Node(E value) {
+            this.value = value;
+            next = null;
+        }
+        /**
+         * Creates a new Node with a pointer to the next one in the list.
          *
          * @param value the object contained in the node.
          * @param next the pointer to the next node in the list.
          */
-        public Node(E value, Node next) {
+        private Node(E value, Node next) {
             this.value = value;
             this.next = next;
         }
