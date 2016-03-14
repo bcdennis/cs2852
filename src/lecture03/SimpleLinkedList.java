@@ -31,12 +31,18 @@ public class SimpleLinkedList<E> implements List<E> {
     @SuppressWarnings("unchecked")
     public boolean add(E element) {
         Node<E> item = new Node<E>(element);
-        Node<E> current = head;
 
-        while (current.next != null) {
-            current = current.next;
+        if (head == null) {
+            head = item;
+        } else {
+            Node<E> current = head;
+
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = item;
+
         }
-        current.next = item;
 
         return true;
     }
