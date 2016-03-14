@@ -19,8 +19,6 @@ import java.util.ListIterator;
  * @param <E> the list type.
  */
 public class SimpleLinkedList<E> implements List<E> {
-    private int size = 0;
-
     private Node<E> head = null;
 
 
@@ -39,7 +37,6 @@ public class SimpleLinkedList<E> implements List<E> {
             current = current.next;
         }
         current.next = item;
-        size++;
 
         return true;
     }
@@ -144,7 +141,8 @@ public class SimpleLinkedList<E> implements List<E> {
      * @return the number of elements currently stored in the array list.
      */
     public int size() {
-        return size;
+        //TODO implement me
+        return -1;
     }
 
     /**
