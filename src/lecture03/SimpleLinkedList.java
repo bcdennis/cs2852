@@ -165,10 +165,12 @@ public class SimpleLinkedList<E> implements List<E> {
     public Object[] toArray() {
         E[] temp = (E[])new Object[size()];
         Node current = head;
+        int index = 0;
 
         while (current.next != null) {
-            temp[0] = (E)current.value;
+            temp[index] = (E)current.value;
             current = current.next;
+            index++;
         }
 
         return temp;
