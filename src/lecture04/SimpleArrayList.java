@@ -255,7 +255,7 @@ public class SimpleArrayList<E> implements List<E> {
         }
 
         /**
-         * Returns true if there is another elementa available in the list.
+         * Returns true if there is another element available in the list.
          *
          * @return true if there is another element available.
          */
@@ -269,6 +269,7 @@ public class SimpleArrayList<E> implements List<E> {
          * Returns the next element in the list.
          *
          * @return the next element in the list.
+         * @throws java.util.NoSuchElementException if there is no element available.
          */
         @Override
         public E next() {
@@ -278,6 +279,8 @@ public class SimpleArrayList<E> implements List<E> {
 
         /**
          *  Removes the last element returned by this iterator.
+         *
+         *  @throws java.lang.IllegalStateException if no element can be removed.
          */
         @Override
         public void remove() {
