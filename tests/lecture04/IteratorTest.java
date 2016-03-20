@@ -28,12 +28,12 @@ import java.util.NoSuchElementException;
  */
 public class IteratorTest {
 
-    private SimpleArrayList<String> list;
+    private SimpleLinkedList<String> list;
     private Iterator iterator;
 
     @Before
     public void setUp() {
-        list = new SimpleArrayList<>();
+        list = new SimpleLinkedList<>();
         iterator = list.iterator();
     }
 
