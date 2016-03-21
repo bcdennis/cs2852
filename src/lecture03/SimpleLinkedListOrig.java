@@ -18,7 +18,7 @@ import java.util.ListIterator;
  *
  * @param <E> the list type.
  */
-public class SimpleLinkedList<E> implements List<E> {
+public class SimpleLinkedListOrig<E> implements List<E> {
     private Node<E> head = null;
 
 

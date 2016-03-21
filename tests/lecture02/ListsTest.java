@@ -5,8 +5,10 @@
  */
 package lecture02;
 
-import java.util.LinkedList;
+import java.util.List;
 import lecture03.SimpleLinkedList;
+import lecture03.SimpleLinkedListOrig;
+import lecture05.KWLinkedList;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -24,11 +26,11 @@ import org.junit.Test;
  */
 public class ListsTest {
 
-    private SimpleLinkedList<String> list;
+    private List<String> list;
 
     @Before
     public void setUp() {
-        list = new SimpleLinkedList<>();
+        list = new SimpleArrayList<>();
     }
 
     @After
@@ -150,12 +152,15 @@ public class ListsTest {
         list.add("String B");
         list.add("String C");
 
+        assertTrue("String C".equals(list.get(2)));
+        assertEquals(3 ,list.size());
+
         // See: http://stackoverflow.com/questions/22731706/
         // java-lang-classcastexception-ljava-lang-object-cannot-be-cast-to-ljava-lang
         Object[] actual = list.toArray();
 
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(expected[i], (String)actual[i]);
+            //assertEquals(expected[i], actual[i]);
         }
     }
 
@@ -173,6 +178,16 @@ public class ListsTest {
 
         assertTrue("String Two".equals(list.get(1)));
         assertEquals(2 ,list.size());
+    }
+
+    @Test
+    public void testAddThreeElementsToList() throws Exception {
+        list.add("String One");
+        list.add("String Two");
+        list.add("String Three");
+
+        assertTrue("String Three".equals(list.get(2)));
+        assertEquals(3 ,list.size());
     }
 
     @Test
