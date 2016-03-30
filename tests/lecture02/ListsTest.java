@@ -6,7 +6,6 @@
 package lecture02;
 
 import java.util.List;
-import lecture03.SimpleLinkedList;
 import lecture03.SimpleLinkedListOrig;
 import lecture05.KWLinkedList;
 import org.junit.After;
