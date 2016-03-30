@@ -5,8 +5,8 @@
  */
 package lecture07;
 
-import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.Vector;
 
 /**
  * Implementation of a simple stack
@@ -16,14 +16,14 @@ import java.util.EmptyStackException;
  *
  * @param <E> the list type.
  */
-public class ArrayListStack<E> {
+public class VectorStack<E> {
 
-    private ArrayList<E> elements;
+    private Vector<E> elements;
 
     /**
      * Creates an empty Stack.
      */
-    public ArrayListStack() {
+    public VectorStack() {
 
     }
 
@@ -55,6 +55,7 @@ public class ArrayListStack<E> {
      * Looks at the object at the top of this stack without removing it.
      *
      * @return the object at the top of the stack.
+     * @throws EmptyStackException if the stack is empty.
      */
     public E peek() {
         //TODO implement me
