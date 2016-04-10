@@ -29,7 +29,7 @@ public class ListsTest {
 
     @Before
     public void setUp() {
-        list = new SimpleArrayList<>();
+        list = new SimpleArrayListComplete<>();
     }
 
     @After

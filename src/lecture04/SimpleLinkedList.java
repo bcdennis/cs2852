@@ -20,6 +20,7 @@ import java.util.ListIterator;
  */
 public class SimpleLinkedList<E> implements List<E> {
     private Node<E> head = null;
+    private Node<E> tail = null;
 
 
     /**
@@ -30,18 +31,13 @@ public class SimpleLinkedList<E> implements List<E> {
      */
     @SuppressWarnings("unchecked")
     public boolean add(E element) {
-        Node<E> item = new Node<E>(element);
+        Node<E> item = new Node<>(element);
 
         if (head == null) {
             head = item;
+            tail = item;
         } else {
-            Node<E> current = head;
-
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = item;
-
+            tail = item;
         }
 
         return true;
