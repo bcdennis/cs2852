@@ -4,6 +4,9 @@
  * Week 8
  */
 package lecture08;
+
+import java.util.NoSuchElementException;
+
 /**
  * A clean queue interface without all the Collection<E> requirements.
  *
@@ -21,7 +24,6 @@ public interface PureQueue<E> {     // Note: does not extend Collection<E>
      */
     int size();
 
-
     /**
      * Determines if this PureQueue object has no elements.
      *
@@ -30,10 +32,13 @@ public interface PureQueue<E> {     // Note: does not extend Collection<E>
      */
     boolean isEmpty();
 
+    /**
+     * Clears the PureQueue object of any elements.
+     */
+    void clear();
 
     /**
      * Inserts a specified element at the back of this PureQueue object.
-     * The averageTime(n) is constant and worstTime(n) is O(n).
      *
      * @param element - the element to be appended.
      */
