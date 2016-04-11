@@ -15,6 +15,7 @@ import java.util.NoSuchElementException;
  * @version 1.0
  */
 public class ArrayQueue<E> implements PureQueue<E> {
+    private static final int CAPACITY = 10;
     private E[] data;
     private int front;
     private int rear;
