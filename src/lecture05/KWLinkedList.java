@@ -259,10 +259,12 @@ public class KWLinkedList<E extends Comparable<E>> implements Iterable<E> {
          * @param iter The iterator to be clones.
          * @author Timothy Rolfe
          */
+
         public KWListIter(KWListIter iter) {
             this.nextItem = iter.nextItem;
             this.lastItemReturned = iter.lastItemReturned;
             this.index = iter.index;
+
         }
 
         /**
