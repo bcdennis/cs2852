@@ -9,7 +9,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] haystack = {0, 3, 5, 7, 8, 10, 11, 18, 22, 39, 44, 78, 79, 101, 121, 199};
-        int needle = 11;
+        int needle = 101;
 
         System.out.println(binarySearchRecursive(haystack, needle));
     }
@@ -27,11 +27,11 @@ public class BinarySearch {
         int mid = (low + high) / 2;
 
         if (haystack[mid] == needle) {
-            return 0; //TODO
+            return mid;
         } else if (haystack[mid] < needle) {
-            return 0; //TODO
+            return binarySearch(haystack, needle, mid + 1, high);
         } else  {
-            return 0; //TODO
+            return binarySearch(haystack, needle, low, mid - 1);
         }
 
     }
