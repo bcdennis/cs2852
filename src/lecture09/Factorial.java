@@ -34,6 +34,7 @@ public class Factorial {
         return result;
     }
 
+
     /**
      * A recursive implementation of factorial.
      * @param n the value to calculate factorial for.
