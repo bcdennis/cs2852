@@ -31,4 +31,13 @@ public class Exercise {
     public static <E> boolean areEqual(PureStack<E> stack1, PureStack<E> stack2) {
         throw new UnsupportedOperationException("remove this line");
     }
+
+    /**
+     * This method should implement a recursive toString.  Print one character at a time, recursively.
+     * @param string the string to recursively print.
+     */
+    public static void toString(String string) {
+
+        
+    }
 }

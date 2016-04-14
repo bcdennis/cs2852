@@ -41,5 +41,4 @@ public class ExerciseTest {
     public void testTwoUnequalStacksAreNotEqual() throws Exception {
 
     }
-
 }
