@@ -34,10 +34,20 @@ public class Exercise {
 
     /**
      * This method should implement a recursive toString.  Print one character at a time, recursively.
-     * @param string the string to recursively print.
+     * @param word the string to recursively print.
      */
-    public static void toString(String string) {
+    public static void toString(char[] word, int n) {
+        if (n == 0) {
+            return;
+        } else {
+            toString(word, n-1);
+            System.out.println(word[n-1]);
+        }
 
-        
+    }
+
+    public static void main(String[] args) {
+        char[] word = {'a','b','c','d'};
+        toString(word, word.length);
     }
 }
