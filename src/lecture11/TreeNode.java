@@ -56,7 +56,7 @@ public class TreeNode<E> {
      * @return the height of the tree.
      */
     public int height() {
-        return preorder(this, 0, 0);
+        return postorder(this, 0, 0);
     }
 
     // this node is visited before child nodes.
@@ -111,6 +111,11 @@ public class TreeNode<E> {
         System.out.println(value);
 
         //TODO use a Stack to visit each node.
+        // 1.) start by pushing root onto the stack
+        // 2.) while stack is not empty
+        //    2a.) pop node off
+        //    2b.) add children to stack
+        //    2c.) recurse
     }
 
     // Breadth first is where you traverse linearly across each level.
