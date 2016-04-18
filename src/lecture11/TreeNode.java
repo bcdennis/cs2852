@@ -7,6 +7,10 @@ package lecture11;
 
 import java.util.ArrayList;
 import java.util.List;
+import lecture08.ArrayStack;
+import lecture08.LinkedQueue;
+import lecture08.PureQueue;
+import lecture08.PureStack;
 
 /**
  * Represents the tree node.
@@ -56,7 +60,7 @@ public class TreeNode<E> {
      * @return the height of the tree.
      */
     public int height() {
-        return postorder(this, 0, 0);
+        return preorder(this, 0, 0);
     }
 
     // this node is visited before child nodes.
@@ -94,22 +98,18 @@ public class TreeNode<E> {
     }
 
     // Depth First is where you descend all the way down to a leaf, then up and down again.
+    // preorder, inorder, and postorder are all types of DFS
     private void depthFirst() {
-        System.out.println(value);
-
         //TODO use a Stack to visit each node.
         // 1.) start by pushing root onto the stack
         // 2.) while stack is not empty
         //    2a.) pop node off
         //    2b.) add children to stack
-        //    2c.) recurse
     }
 
     // Breadth first is where you traverse linearly across each level.
     private void breadthFirst() {
-        System.out.println(value);
-
-        //TODO use a Queue to visit each node.
+        //TODO use a Queue to visit each node like you did with DFS.
     }
 
     public static void main(String[] args) {

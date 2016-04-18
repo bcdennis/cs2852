@@ -42,14 +42,23 @@ public class TreeTest {
         TreeNode<String> e = new TreeNode<>("E");
         TreeNode<String> f = new TreeNode<>("F");
         TreeNode<String> g = new TreeNode<>("G");
+        TreeNode<String> h = new TreeNode<>("H");
+        TreeNode<String> i = new TreeNode<>("I");
+        TreeNode<String> j = new TreeNode<>("J");
 
-        b.addChild(c);
         b.addChild(d);
-        e.addChild(f);
-        f.addChild(g);
+        b.addChild(e);
+
+        c.addChild(f);
+
+        d.addChild(g);
+        e.addChild(h);
+
+        f.addChild(i);
+        f.addChild(j);
 
         a.addChild(b);
-        a.addChild(e);
+        a.addChild(c);
 
         assertEquals(4, a.height());
     }
