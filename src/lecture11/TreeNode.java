@@ -62,7 +62,7 @@ public class TreeNode<E> {
     // this node is visited before child nodes.
     private int preorder(TreeNode<E> node, int height, int maxHeight) {
         height++;
-        System.out.println(node.value + "  " + height + " " + maxHeight);
+        System.out.println(node.value);
 
         if (maxHeight < height) {
             maxHeight  = height;
@@ -81,21 +81,8 @@ public class TreeNode<E> {
 
     // child nodes are visited before this node
     private int postorder(TreeNode<E> node, int height, int maxHeight) {
-        height++;
-
-        for(TreeNode<E> child : node.children) {
-            maxHeight = preorder(child, height, maxHeight);
-        }
-
-        System.out.println(node.value + "  " + height + " " + maxHeight);
-        if (maxHeight < height) {
-            maxHeight  = height;
-        }
-
-        if(node.children.size() == 0) {
-            return maxHeight;
-        }
-        return maxHeight;
+        //TODO implement me
+        return -1;
     }
 
     /**
