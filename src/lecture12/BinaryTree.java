@@ -5,6 +5,9 @@
  */
 package lecture12;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Represents a binary tree/node.
  *
@@ -14,14 +17,14 @@ package lecture12;
  */
 public class BinaryTree<E> {
 
-    protected Node<E> root;
+    private Node<E> root;
 
     public BinaryTree() {
         root = null;
     }
 
-    public BinaryTree(Node<E> root) {
-        this.root = root;
+    public BinaryTree(E data) {
+        this.root = new Node<>(data);
     }
 
     public BinaryTree(E data, BinaryTree<E> left, BinaryTree<E> right) {
@@ -46,7 +49,17 @@ public class BinaryTree<E> {
      * Why?
      */
     public void inorder() {
+        inorder(root);
+    }
 
+    private void inorder(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        inorder(node.left);
+        System.out.println(node.value);
+        inorder(node.right);
     }
 
     /**
@@ -59,7 +72,21 @@ public class BinaryTree<E> {
      * Executes a BFS iteratively with a Queue.
      */
     public void breadthFirst() {
-        //TODO implement me using a Queue
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            Node<E> node = queue.remove();
+            System.out.println(node.value);
+
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
     }
 
     /**
@@ -118,6 +145,27 @@ public class BinaryTree<E> {
             left = null;
             right = null;
         }
+    }
 
+    public static void main(String[] args) {
+
+        BinaryTree<String> g = new BinaryTree<>("G");
+        BinaryTree<String> d = new BinaryTree<>("D", null, g);
+
+        BinaryTree<String> h = new BinaryTree<>("H");
+        BinaryTree<String> e = new BinaryTree<>("E", h, null);
+
+        BinaryTree<String> i = new BinaryTree<>("I");
+        BinaryTree<String> j = new BinaryTree<>("J");
+
+        BinaryTree<String> f = new BinaryTree<>("F", i, j);
+
+        BinaryTree<String> c = new BinaryTree<>("C", f, null);
+        BinaryTree<String> b = new BinaryTree<>("B", d, e);
+
+        BinaryTree<String> a = new BinaryTree<>("A", b, c);
+
+        a.inorder();
+        a.breadthFirst();
     }
 }
