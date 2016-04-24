@@ -7,6 +7,10 @@ package lecture11;
 
 import java.util.ArrayList;
 import java.util.List;
+import lecture08.ArrayStack;
+import lecture08.LinkedQueue;
+import lecture08.PureQueue;
+import lecture08.PureStack;
 
 /**
  * Represents the tree node.
@@ -62,7 +66,7 @@ public class TreeNode<E> {
     // this node is visited before child nodes.
     private int preorder(TreeNode<E> node, int height, int maxHeight) {
         height++;
-        System.out.println(node.value + "  " + height + " " + maxHeight);
+        System.out.println(node.value);
 
         if (maxHeight < height) {
             maxHeight  = height;
@@ -81,21 +85,8 @@ public class TreeNode<E> {
 
     // child nodes are visited before this node
     private int postorder(TreeNode<E> node, int height, int maxHeight) {
-        height++;
-
-        for(TreeNode<E> child : node.children) {
-            maxHeight = preorder(child, height, maxHeight);
-        }
-
-        System.out.println(node.value + "  " + height + " " + maxHeight);
-        if (maxHeight < height) {
-            maxHeight  = height;
-        }
-
-        if(node.children.size() == 0) {
-            return maxHeight;
-        }
-        return maxHeight;
+        //TODO implement me
+        return -1;
     }
 
     /**
@@ -107,17 +98,18 @@ public class TreeNode<E> {
     }
 
     // Depth First is where you descend all the way down to a leaf, then up and down again.
+    // preorder, inorder, and postorder are all types of DFS
     private void depthFirst() {
-        System.out.println(value);
-
         //TODO use a Stack to visit each node.
+        // 1.) start by pushing root onto the stack
+        // 2.) while stack is not empty
+        //    2a.) pop node off
+        //    2b.) add children to stack
     }
 
     // Breadth first is where you traverse linearly across each level.
     private void breadthFirst() {
-        System.out.println(value);
-
-        //TODO use a Queue to visit each node.
+        //TODO use a Queue to visit each node like you did with DFS.
     }
 
     public static void main(String[] args) {
