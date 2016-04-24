@@ -16,7 +16,7 @@ package lecture12;
 public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
 
     private boolean addReturn = false;
-    private E deleteReturn;
+    private boolean deleteReturn;
     private BinaryNode<E> root;
 
     /**
@@ -32,7 +32,13 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
     }
 
     private BinaryNode<E> add(BinaryNode<E> localRoot, E item) {
+        //TODO implement me
+        // update the addReturn value if it was successfully added or not.
 
+        // if the root is null replace the empty tree with a new tree with the item at the root and return true.
+        // if the item is equal to the local root then the item is already in the tree, return false.
+        // if the item is less than the local root then recursively insert into the left subtree
+        // if the item is greater than the local root then recursively insert into the right subtree.
         return null;
     }
 
@@ -44,18 +50,8 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
      */
     @Override
     public boolean contains(E target) {
+        //TODO implement me
         return false;
-    }
-
-    /**
-     * Returns a reference to the data in the node that is equal to the target.
-     *
-     * @param target the item to look for.
-     * @return the reference, if found, null otherwise.
-     */
-    @Override
-    public E find(E target) {
-        return null;
     }
 
     /**
@@ -65,15 +61,15 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
      * @return the target if found, null otherwise.
      */
     @Override
-    public E delete(E target) {
-        root = delete(root, target);
+    public boolean remove(E target) {
+        root = remove(root, target);
         return deleteReturn;
     }
 
-    private BinaryNode<E> delete(BinaryNode<E> localRoot, E item) {
+    private BinaryNode<E> remove(BinaryNode<E> localRoot, E item) {
         // item is not in the tree
         if(localRoot == null) {
-            deleteReturn = null;
+            deleteReturn = false;
             return null;
         }
 
@@ -82,15 +78,15 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
 
         if (comparison < 0) {
             // item is smaller than the local root
-            localRoot.left = delete(localRoot.left, item);
+            localRoot.left = remove(localRoot.left, item);
             return localRoot;
         } else if (comparison > 0) {
             // item is larger than the local root
-            localRoot.right = delete(localRoot.right, item);
+            localRoot.right = remove(localRoot.right, item);
             return localRoot;
         } else {
             // item is the local root
-            deleteReturn = localRoot.value;
+            deleteReturn = true;
 
             if (localRoot.left == null) {
                 // if there is no left child, return the right child.
@@ -128,18 +124,6 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
         }
     }
 
-
-    /**
-     * Removes the target (if found) from the tree.
-     *
-     * @param target the item to remove.
-     * @return true if found, false if not found.
-     */
-    @Override
-    public boolean remove(E target) {
-        return false;
-    }
-
     private static class BinaryNode<E extends Comparable<E>> {
         private E value;
         private BinaryNode<E> left;
@@ -151,5 +135,9 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
             this.right = null;
 
         }
+    }
+
+    public static void main(String[] args) {
+        //TODO implement some simple tests
     }
 }

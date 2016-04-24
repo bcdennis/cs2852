@@ -31,26 +31,10 @@ public interface SearchTree<E> {
     boolean contains(E target);
 
     /**
-     * Returns a reference to the data in the node that is equal to the target.
-     *
-     * @param target the item to look for.
-     * @return the reference, if found, null otherwise.
-     */
-    E find(E target);
-
-    /**
-     * Removes the target (if found) from the tree.
-     *
-     * @param target the item to remove.
-     * @return the target if found, null otherwise.
-     */
-    E delete(E target);
-
-    /**
      * Removes the target (if found) from the tree.
      *
      * @param target the item to remove.
      * @return true if found, false if not found.
      */
-    boolean remove (E target);
+    boolean remove(E target);
 }
