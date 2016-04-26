@@ -32,20 +32,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
     }
 
     private BinaryNode<E> add(BinaryNode<E> localRoot, E item) {
-        BinaryNode<E> returnNode = localRoot;
-
-        if (localRoot == null) {
-            addReturn = true;
-            returnNode = new BinaryNode<>(item);
-        } else if (item.compareTo(localRoot.value) == 0) {
-            addReturn = false;
-        } else if (item.compareTo(localRoot.value) < 0) {
-            localRoot.left = add(localRoot.left, item);
-        } else {
-            localRoot.right = add(localRoot.right, item);
-        }
-
-        return returnNode;
+        return null;
     }
 
     /**
