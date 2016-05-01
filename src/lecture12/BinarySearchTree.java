@@ -32,7 +32,7 @@ public class BinarySearchTree<E extends Comparable<E>> implements SearchTree<E>{
     }
 
     private BinaryNode<E> add(BinaryNode<E> localRoot, E item) {
-        //TODO implement me
+
         // update the addReturn value if it was successfully added or not.
 
         // if the root is null replace the empty tree with a new tree with the item at the root and return true.
