@@ -37,34 +37,34 @@ public class Lecture13 {
     }
 
     private static void doMapDemo(ArrayList<String> list) {
-        Map<Integer, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
 
         for (int i = 0; i < list.size(); i++) {
-            map.put(i, list.get(i));
+            map.put(list.get(i).substring(0,1) + i, list.get(i));
         }
 
-        for(Integer i: map.keySet()) {
-            System.out.print(map.get(i) + " ");
+        for(String key: map.keySet()) {
+            System.out.print(map.get(key) + " ");
         }
         System.out.println();
 
         map = new LinkedHashMap<>();
         for (int i = 0; i < list.size(); i++) {
-            map.put(i, list.get(i));
+            map.put(list.get(i).substring(0,1) + i, list.get(i));
         }
 
-        for(Integer i: map.keySet()) {
-            System.out.print(map.get(i) + " ");
+        for(String key: map.keySet()) {
+            //System.out.print(map.get(key) + " ");
         }
         System.out.println();
 
         map = new TreeMap<>();
         for (int i = 0; i < list.size(); i++) {
-            map.put(i, list.get(i));
+            map.put(list.get(i).substring(0,1) + i, list.get(i));
         }
 
-        for(Integer i: map.keySet()) {
-            System.out.print(map.get(i) + " ");
+        for(String key: map.keySet()) {
+            //System.out.print(map.get(key) + " ");
         }
         System.out.println();
     }
@@ -74,7 +74,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            System.out.print(s + " ");
+            //System.out.print(s + " ");
         }
         System.out.println();
 
@@ -82,7 +82,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            System.out.print(s + " ");
+            //System.out.print(s + " ");
         }
         System.out.println();
 
@@ -90,7 +90,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            System.out.print(s + " ");
+            //System.out.print(s + " ");
         }
         System.out.println();
 

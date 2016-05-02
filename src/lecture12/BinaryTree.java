@@ -172,9 +172,22 @@ public class BinaryTree<E> {
 
         BinaryTree<String> a = new BinaryTree<>("A", b, c);
 
-        a.inorder();
-        a.breadthFirst();
+        //a.inorder();
+        //a.breadthFirst();
 
-        System.out.println(a.height());
+        //System.out.println(a.height());
+        char[] word = {'a','b','c'};
+
+        toString(word, 0);
+    }
+
+    public static void toString(char[] word, int n) {
+        if (n > word.length - 1) {
+            return;
+        }
+
+        System.out.print(word[n]);
+        n++;
+        toString(word, n);
     }
 }
