@@ -24,17 +24,19 @@ public class LinearProbingStrategy implements ProbingStrategy {
     @Override
     public int find(HashTableEntry[] table, Object key) {
         //Calculate the starting index.
+        System.out.println("probing for: " + key);
         int index = key.hashCode() % table.length;
 
         // make the index positive if it's not.
         if (index < 0) {
             index += table.length;
         }
+        System.out.println("starting index: " + index);
 
         // search linearly until an empty slot is reached or the key is found.
         while ((table[index] != null) && !key.equals(table[index].getKey())) {
             index++;
-
+            System.out.println(" - probing index: " + index);
             // wrap around and keep searching.
             if (index >= table.length) {
                 index = 0;
@@ -42,6 +44,7 @@ public class LinearProbingStrategy implements ProbingStrategy {
 
             // what conditions would this be an infinite loop?
         }
+        System.out.println(" - final index: " + index);
         return index;
     }
 }

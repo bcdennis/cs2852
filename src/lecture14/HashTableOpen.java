@@ -130,6 +130,7 @@ public class HashTableOpen<K,V> implements HashTable<K,V> {
     private boolean shouldRehash() {
         // What is the consequence of forgetting to cast this as a double?
         double loadFactor = (double) (numberOfKeys + numberOfDeletes) /table.length;
+        System.out.println(" - load factor: " + loadFactor);
         return (loadFactor > LOAD_THRESHOLD);
     }
 
