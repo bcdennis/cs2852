@@ -54,7 +54,7 @@ public class Lecture13 {
         }
 
         for(String key: map.keySet()) {
-            //System.out.print(map.get(key) + " ");
+            System.out.print(map.get(key) + " ");
         }
         System.out.println();
 
@@ -64,7 +64,7 @@ public class Lecture13 {
         }
 
         for(String key: map.keySet()) {
-            //System.out.print(map.get(key) + " ");
+            System.out.print(map.get(key) + " ");
         }
         System.out.println();
     }
@@ -74,7 +74,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            //System.out.print(s + " ");
+            System.out.print(s + " ");
         }
         System.out.println();
 
@@ -82,7 +82,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            //System.out.print(s + " ");
+            System.out.print(s + " ");
         }
         System.out.println();
 
@@ -90,7 +90,7 @@ public class Lecture13 {
         set.addAll(list);
 
         for(String s: set) {
-            //System.out.print(s + " ");
+            System.out.print(s + " ");
         }
         System.out.println();
 
