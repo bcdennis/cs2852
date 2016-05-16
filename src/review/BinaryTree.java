@@ -1,5 +1,4 @@
-/*<listing chapter="6" section="3">*/
-package lecture15;
+package review;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -45,7 +44,7 @@ public class BinaryTree<E> implements Serializable {
             return data.toString();
         }
     }
-    /*</listing>*/
+
     // Data Field
     /** The root of the binary tree */
     protected Node<E> root;
@@ -69,7 +68,7 @@ public class BinaryTree<E> implements Serializable {
      * as its left subtree and rightTree as its right subtree.
      */
     public BinaryTree(E data, BinaryTree<E> leftTree,
-            BinaryTree<E> rightTree) {
+                      BinaryTree<E> rightTree) {
         root = new Node<E>(data);
         if (leftTree != null) {
             root.left = leftTree.root;
@@ -159,6 +158,7 @@ public class BinaryTree<E> implements Serializable {
         }
     }
 
+
     /**
      * Method to read a binary tree.
      * @pre The input consists of a preorder traversal
@@ -225,11 +225,13 @@ public class BinaryTree<E> implements Serializable {
         }
         stb.append(root);
     }
-    /**
+
+    /** 
      * A method to display the inorder traversal of a binary tree 
      * placing a left parenthesis before each subtree and a right
      * parenthesis after each subtree. For example the expression 
      * tree shown in Figure 6.12 would be represented as
+     * (((x) + (y)) * ((a) / (b))).
      * @return An inorder string representation of the tree
      */
     public String inorderToString() {
@@ -253,5 +255,36 @@ public class BinaryTree<E> implements Serializable {
     }
 
 
+    /**
+     * Pretty prints the binary search tree.
+     */
+    public void print() {
+        print(root, true, "");
+    }
+
+    private void print(Node<E> node, boolean isTail, String indent) {
+
+        if(node.right != null) {
+            print(node.right, false, indent + (isTail ? "│   " : "    "));
+        }
+        System.out.println(indent + (isTail ? "└── " : "┌── ") + node.data);
+
+        if(node.left!=null) {
+            print(node.left, true, indent + (isTail ? "    " :"│   "));
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        File file = new File("expression.txt");
+        BinaryTree<String> expression = BinaryTree.readBinaryTree(new BufferedReader(new FileReader("expression.txt")));
+        expression.print();
+
+        System.out.println("INORDER:\n" + expression.inorderToString());
+        System.out.println("POSTORDER:\n" + expression.postorderToString());
+        System.out.println("PREORDER:\n" + expression.preorderToString());
+
+        System.out.println("EVALUATION: \n20");
+
+    }
 }
 
