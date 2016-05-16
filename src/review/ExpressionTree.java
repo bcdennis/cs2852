@@ -62,7 +62,7 @@ public class ExpressionTree {
      * A method to display the inorder traversal of a binary tree
      * placing a left parenthesis before each subtree and a right
      * parenthesis after each subtree. For example the expression
-     * tree shown in Figure 6.12 would be represented as
+     * tree shown in Figure 6.12 from the book would be represented as
      * (((x) + (y)) * ((a) / (b))).
      * @return An inorder string representation of the tree
      */
@@ -82,12 +82,17 @@ public class ExpressionTree {
      * @return the result of the expression stored in the tree.
      */
     public int evaluate() {
-        return evaluate(tree.root);
+        return evaluateWithRecursion(tree.root);
+        //return evaluateWithStack(tree.root);
     }
 
-    private int evaluate(BinaryTree.Node root) {
+    private int evaluateWithStack(BinaryTree.Node root) {
+        //TODO implement me
+        return 0;
+    }
 
-
+    private int evaluateWithRecursion(BinaryTree.Node root) {
+        //TODO implement me
         return 0;
     }
 
