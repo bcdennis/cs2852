@@ -81,10 +81,14 @@ public class ExpressionTree {
      *
      * @return the result of the expression stored in the tree.
      */
-    public double evaluate() {
-        //TODO implement me
+    public int evaluate() {
+        return evaluate(tree.root);
+    }
 
-        return 0d;
+    private int evaluate(BinaryTree.Node root) {
+
+
+        return 0;
     }
 
     /**
