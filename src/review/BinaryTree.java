@@ -1,8 +1,6 @@
 package review;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -158,6 +156,24 @@ public class BinaryTree<E> implements Serializable {
         }
     }
 
+    /**
+     * Pretty prints the binary search tree.
+     */
+    public void print() {
+        print(root, true, "");
+    }
+
+    private void print(Node<E> node, boolean isTail, String indent) {
+
+        if(node.right != null) {
+            print(node.right, false, indent + (isTail ? "│   " : "    "));
+        }
+        System.out.println(indent + (isTail ? "└── " : "┌── ") + node.data);
+
+        if(node.left!=null) {
+            print(node.left, true, indent + (isTail ? "    " :"│   "));
+        }
+    }
 
     /**
      * Method to read a binary tree.
@@ -180,111 +196,6 @@ public class BinaryTree<E> implements Serializable {
         }
     }
 
-    /**
-     * Method to return the preorder traversal of the binary tree
-     * as a sequence of strings each separated by a space.
-     * @return A preorder traversal as a string
-     */
-    public String preorderToString() {
-        StringBuilder stb = new StringBuilder();
-        preorderToString(stb, root);
-        return stb.toString();
-    }
 
-    private void preorderToString(StringBuilder stb, Node<E> root) {
-        stb.append(root);
-        if (root.left != null) {
-            stb.append(" ");
-            preorderToString(stb, root.left);
-        }
-        if (root.right != null) {
-            stb.append(" ");
-            preorderToString(stb, root.right);
-        }
-    }
-
-    /**
-     * Method to return the postorder traversal of the binary tree
-     * as a sequence of strings each separated by a space.
-     * @return A postorder traversal as a string
-     */
-    public String postorderToString() {
-        StringBuilder stb = new StringBuilder();
-        postorderToString(stb, root);
-        return stb.toString();
-    }
-
-    private void postorderToString(StringBuilder stb, Node<E> root) {
-        if (root.left != null) {
-            postorderToString(stb, root.left);
-            stb.append(" ");
-        }
-        if (root.right != null) {
-            postorderToString(stb, root.right);
-            stb.append(" ");
-        }
-        stb.append(root);
-    }
-
-    /** 
-     * A method to display the inorder traversal of a binary tree 
-     * placing a left parenthesis before each subtree and a right
-     * parenthesis after each subtree. For example the expression 
-     * tree shown in Figure 6.12 would be represented as
-     * (((x) + (y)) * ((a) / (b))).
-     * @return An inorder string representation of the tree
-     */
-    public String inorderToString() {
-        StringBuilder stb = new StringBuilder();
-        inorderToString(stb, root);
-        return stb.toString();
-    }
-
-    private void inorderToString(StringBuilder stb, Node<E> root) {
-        if (root.left != null) {
-            stb.append("(");
-            inorderToString(stb, root.left);
-            stb.append(") ");
-        }
-        stb.append(root);
-        if (root.right != null) {
-            stb.append(" (");
-            inorderToString(stb, root.right);
-            stb.append(")");
-        }
-    }
-
-
-    /**
-     * Pretty prints the binary search tree.
-     */
-    public void print() {
-        print(root, true, "");
-    }
-
-    private void print(Node<E> node, boolean isTail, String indent) {
-
-        if(node.right != null) {
-            print(node.right, false, indent + (isTail ? "│   " : "    "));
-        }
-        System.out.println(indent + (isTail ? "└── " : "┌── ") + node.data);
-
-        if(node.left!=null) {
-            print(node.left, true, indent + (isTail ? "    " :"│   "));
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        File file = new File("expression.txt");
-        BinaryTree<String> expression = BinaryTree.readBinaryTree(new BufferedReader(new FileReader("expression.txt")));
-        expression.print();
-
-        System.out.println("INORDER:\n" + expression.inorderToString());
-        System.out.println("POSTORDER:\n" + expression.postorderToString());
-        System.out.println("PREORDER:\n" + expression.preorderToString());
-
-        System.out.println("EVALUATION: \n20");
-
-    }
 }
 
